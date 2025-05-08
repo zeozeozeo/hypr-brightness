@@ -34,6 +34,6 @@ if [ "$focused_name" == "eDP-1" ]; then
         brillo -u 150000 -A 8
     fi
 else
-    focused_id=$(echo $monitor_data | jq -r '.[] | select(.focused == true) | .id')
+    focused_id=$(echo $monitor_data | jq -r '.[] | select(.focused == true) | .id + 1')
     ddcutil --sleep-multiplier=.2 --display=$focused_id setvcp 10 $direction 15
 fi
